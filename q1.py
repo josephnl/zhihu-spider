@@ -21,10 +21,11 @@ use_unicode = cf.get("db", "use_unicode")
 
 # 使用pymysql模块链接数据库
 
-db = pymysql.connect(host=host, port=port, user=user, password=passwd, database=db_name, charset=charset, use_unicode=use_unicode)
+db = pymysql.connect(host=host, port=port, user=user, password=passwd,
+                     database=db_name, charset=charset, use_unicode=use_unicode)
 cursor = db.cursor()
 
-for i in range(1,10):
+for i in range(1, 10):
     cursor.execute('select * from QUESTION where id = %d' % i)
     values = cursor.fetchall()
     print(values)
